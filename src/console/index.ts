@@ -10,7 +10,7 @@ const genPara = (args: any[]): any[] => {
             before = `${before}${arg[0]}`
             after.push(arg[1])
         } else if (arg && arg.$$TYPE === BROWSER_BEAUTIFY_INSTANCE) {
-            const [a, b] = ((arg as Instance).value() as unknown as [string, string])
+            const [a, b] = ((arg as Instance).output() as unknown as [string, string])
             before = `${before}${a}`
             after.push(b)
         } else {

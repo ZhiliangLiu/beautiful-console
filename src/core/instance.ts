@@ -52,7 +52,7 @@ class Instance {
         return this
     }
 
-    public value(value?: string): BeautifyObject {
+    public output(value?: string): BeautifyObject {
         if (this.str !== undefined || value !== undefined) {
             return beautify((value || this.str) as string, this.config) as BeautifyObject
         } else {
