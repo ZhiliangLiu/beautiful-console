@@ -1,0 +1,69 @@
+import {BROWSER_BEAUTIFY_TYPE, BeautifyConfig, BeautifyObject} from '../type'
+import {
+    blue,
+    cyan,
+    fuchsia,
+    gray,
+    green,
+    indigo,
+    lime,
+    orange,
+    pink,
+    red,
+    teal,
+    violet,
+    yellow
+} from '../color'
+
+export const beautify = (str: string, config?: BeautifyConfig | string): BeautifyObject | string => {
+    if (config === undefined) {
+        return str
+    } else if (typeof config === 'string') {
+        const ret = [`%c${str}`, config]
+        Object.assign(ret, {$$TYPE: BROWSER_BEAUTIFY_TYPE})
+        return ret as unknown as BeautifyObject
+    } else {
+        const behind = Object.entries(config).map(([key, value]: [string, string | undefined]) => `${key}: ${value}`).join('; ')
+        const ret = [`%c${str}`, behind]
+        Object.assign(ret, {$$TYPE: BROWSER_BEAUTIFY_TYPE})
+        return ret as unknown as BeautifyObject
+    }
+}
+
+export const color = (str: string, color: string) => {
+    return beautify(str, {color})
+}
+
+export const fontSize = (str: string, size: string) => {
+    return beautify(str, {'font-size': size})
+}
+
+export const backgroundColor = (str: string, color: string) => {
+    return beautify(str, {'background-color': color})
+}
+
+export const colorMap: Map<string, string> = new Map<string, string>([
+    ['red', red[5]],
+    ['gray', gray[5]],
+    ['blue', blue[5]],
+    ['indigo', indigo[5]],
+    ['violet', violet[5]],
+    ['fuchsia', fuchsia[5]],
+    ['pink', pink[5]],
+    ['orange', orange[5]],
+    ['yellow', yellow[5]],
+    ['lime', lime[5]],
+    ['green', green[5]],
+    ['teal', teal[5]],
+    ['cyan', cyan[5]]
+])
+
+export const getColorBeautify = (): { [propName: string]: (str: string) => BeautifyObject } => {
+    const ret = {}
+    colorMap.forEach((value, key) => {
+        Object.assign(ret, {
+            [key]: (str: string) => beautify(str, {color: value})
+        })
+    })
+    return ret
+}
