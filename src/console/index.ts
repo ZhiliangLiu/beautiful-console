@@ -13,6 +13,9 @@ const genPara = (args: any[]): any[] => {
             const [a, b] = ((arg as Instance).output() as unknown as [string, string])
             before = `${before}${a}`
             after.push(b)
+        } else if (typeof arg === 'string') {
+            before = `${before}%c${arg}`
+            after.push('')
         } else {
             other.push(arg)
         }
