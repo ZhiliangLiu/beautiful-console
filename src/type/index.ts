@@ -4,17 +4,17 @@ export const BROWSER_BEAUTIFY_TYPE = hasSymbol ? Symbol.for('browser.beautify.ty
 export const BROWSER_BEAUTIFY_INSTANCE = hasSymbol ? Symbol.for('browser.beautify.instance') : 0xffe
 
 export interface BeautifyConfig {
-    'color'?: string
-    'background-color'?: string
-    'font-size'?: string
+  color?: string
+  'background-color'?: string
+  'font-size'?: string
 
-    [propName: string]: string | undefined
+  [propName: string]: string | undefined
 }
 
 export interface BeautifyObject {
-    $$TYPE: symbol | number
+  $$TYPE: symbol | number
 
-    [propNmae: number]: string
+  [propNmae: number]: string
 }
 
 export type Color = [string, string, string, string, string, string, string, string, string, string]
