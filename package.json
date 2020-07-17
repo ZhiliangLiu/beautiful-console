@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "./node_modules/rollup/dist/bin/rollup -c",
-    "lint": "eslint --ext ts --fix src/**",
+    "lint": "eslint --ext ts src/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ZhiliangLiu/beautiful-console#readme",
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
     "eslint": "^7.4.0",
@@ -34,6 +35,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "rollup": "^2.21.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",

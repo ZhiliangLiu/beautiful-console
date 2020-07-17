@@ -1,5 +1,5 @@
 import { BROWSER_BEAUTIFY_INSTANCE, BeautifyConfig, BeautifyObject } from '@/type'
-import { beautify, colorMap } from './base'
+import { beautify, colorMap } from '@/core/base'
 
 class Instance {
   public $$TYPE = BROWSER_BEAUTIFY_INSTANCE
@@ -32,22 +32,22 @@ class Instance {
     })
   }
 
-  public color(color: string) {
+  public color(color: string): this {
     Object.assign(this.config, { color })
     return this
   }
 
-  public backgroundColor(color: string) {
+  public backgroundColor(color: string): this {
     Object.assign(this.config, { 'background-color': color })
     return this
   }
 
-  public fontSize(size: string) {
+  public fontSize(size: string): this {
     Object.assign(this.config, { 'font-size': size })
     return this
   }
 
-  public para(para: { [propName: string]: string }) {
+  public para(para: { [propName: string]: string }): this {
     Object.assign(this.config, para)
     return this
   }

@@ -18,15 +18,15 @@ export const beautify = (str: string, config?: BeautifyConfig | string): Beautif
   }
 }
 
-export const color = (str: string, color: string) => {
+export const color = (str: string, color: string): BeautifyObject | string => {
   return beautify(str, { color })
 }
 
-export const fontSize = (str: string, size: string) => {
+export const fontSize = (str: string, size: string): BeautifyObject | string => {
   return beautify(str, { 'font-size': size })
 }
 
-export const backgroundColor = (str: string, color: string) => {
+export const backgroundColor = (str: string, color: string): BeautifyObject | string => {
   return beautify(str, { 'background-color': color })
 }
 

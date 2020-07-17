@@ -1,6 +1,6 @@
 import { BeautifyConfig, BeautifyObject } from '@/type'
-import { backgroundColor, beautify, color, fontSize, getColorBeautify } from './base'
-import Instance from './instance'
+import { backgroundColor, beautify, color, fontSize, getColorBeautify } from '@/core/base'
+import Instance from '@/core/instance'
 
 export default {
   beautify,
